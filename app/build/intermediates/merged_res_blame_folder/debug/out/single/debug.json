@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/layout_activity_main.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/layout_fragment_page_profile.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/layout/fragment_page_profile.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/layout_fragment_page_category.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/layout/fragment_page_category.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/layout_card_book_overview.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/layout/card_book_overview.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_category.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/drawable/category.xml"
+    },
+    {
+        "merged": "aandrosov.bookstore.app-merged_res-4:/layout_activity_main.xml.flat",
+        "source": "aandrosov.bookstore.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_circle_shape.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/drawable/circle_shape.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_book.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/drawable/book.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_favorite.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/drawable/favorite.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/layout_fragment_page_favorites.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/layout/fragment_page_favorites.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/xml_profile_preferences.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/xml/profile_preferences.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_person.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/drawable/person.xml"
+    },
+    {
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/menu_bottom_navigation_main.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/menu/bottom_navigation_main.xml"
+    }
+]

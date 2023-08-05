@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.application' version '8.0.0'
+}
+
+android {
+    namespace 'aandrosov.bookstore'
+
+    compileSdk 34
+
+    defaultConfig {
+        applicationId = 'aandrosov.bookstore'
+
+        minSdk = 26
+        targetSdk = 34
+
+        versionCode = 1
+        versionName = '1.0.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = true
+            proguardFiles getDefaultProguardFile("proguard-android.txt")
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_17
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.preference:preference:1.2.1'
+
+    implementation project(':api')
+}

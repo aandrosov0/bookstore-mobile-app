@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/page_category"
+        android:enabled="true"
+        android:title="Category"
+        android:icon="@drawable/category"/>
+
+    <item
+        android:id="@+id/page_favorites"
+        android:enabled="true"
+        android:title="Favorites"
+        android:icon="@drawable/favorite"/>
+
+    <item
+        android:id="@+id/page_profile"
+        android:enabled="true"
+        android:title="Profile"
+        android:icon="@drawable/person"/>
+</menu>

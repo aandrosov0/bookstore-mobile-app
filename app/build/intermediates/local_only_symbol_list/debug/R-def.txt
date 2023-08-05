@@ -1,0 +1,28 @@
+R_DEF: Internal format may change without notice
+local
+drawable book
+drawable category
+drawable circle_shape
+drawable favorite
+drawable person
+id author
+id bottom_navigation
+id card_book_overview_recycler
+id cover
+id fragment_container
+id indeterminate_progress_bar
+id page_category
+id page_favorites
+id page_profile
+id search_view
+id title
+layout activity_main
+layout card_book_overview
+layout fragment_page_category
+layout fragment_page_favorites
+layout fragment_page_profile
+menu bottom_navigation_main
+string app_name
+style AppTheme
+style CircleShapeableImageView
+xml profile_preferences
