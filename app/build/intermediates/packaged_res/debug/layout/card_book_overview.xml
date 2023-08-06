@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
@@ -19,11 +20,8 @@
             android:layout_width="0dp"
             android:layout_weight="0.30"
             android:layout_height="match_parent"
-            android:background="@android:color/background_dark"
-            android:foreground="@drawable/book"
-            android:foregroundGravity="center"
-            android:scaleType="fitXY"
-            android:foregroundTint="@color/cardview_light_background"/>
+            android:background="@android:drawable/ic_menu_report_image"
+            android:scaleType="fitXY"/>
 
         <LinearLayout
             android:layout_weight="0.70"

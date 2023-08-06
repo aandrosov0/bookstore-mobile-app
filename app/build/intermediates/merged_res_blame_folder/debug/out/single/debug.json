@@ -16,12 +16,12 @@
         "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/layout/card_book_overview.xml"
     },
     {
-        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_category.xml.flat",
-        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/drawable/category.xml"
+        "merged": "aandrosov.bookstore.app-merged_res-4:/layout_card_book_overview.xml.flat",
+        "source": "aandrosov.bookstore.app-main-6:/layout/card_book_overview.xml"
     },
     {
-        "merged": "aandrosov.bookstore.app-merged_res-4:/layout_activity_main.xml.flat",
-        "source": "aandrosov.bookstore.app-main-6:/layout/activity_main.xml"
+        "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_category.xml.flat",
+        "source": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-main-6:/drawable/category.xml"
     },
     {
         "merged": "/home/aandrosov/.gradle/daemon/8.2/aandrosov.bookstore.app-merged_res-4:/drawable_circle_shape.xml.flat",

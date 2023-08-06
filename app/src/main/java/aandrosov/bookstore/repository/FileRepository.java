@@ -1,5 +1,7 @@
 package aandrosov.bookstore.repository;
 
+import android.os.Handler;
+
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
@@ -11,23 +13,26 @@ public class FileRepository {
 
     private final Executor executor;
 
-    public FileRepository(Executor executor) {
+    private final Handler handler;
+
+    public FileRepository(Executor executor, Handler handler) {
         this.executor = executor;
+        this.handler = handler;
     }
 
-    public void downloadFile(String fileUrl, RepositoryCallback callback) {
+    public void downloadFile(String fileUrl, String fileName, RepositoryCallback callback) {
         executor.execute(() -> {
             try {
                 URL url = new URL(fileUrl);
                 InputStream inputStream = url.openStream();
 
-                File file = File.createTempFile("temp", null);
+                File file = new File(fileName);
                 Files.copy(inputStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
                 inputStream.close();
-                callback.onComplete(new Result.Success(file));
+                handler.post(() -> callback.onComplete(new Result.Success(file.getPath())));
             } catch(Exception exception) {
-                callback.onComplete(new Result.Error(exception));
+                handler.post(() -> callback.onComplete(new Result.Error(exception)));
             }
         });
     }

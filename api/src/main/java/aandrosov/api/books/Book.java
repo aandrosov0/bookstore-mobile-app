@@ -10,6 +10,8 @@ public class Book {
 
     private Author[] authors;
 
+    private String isbn;
+
     @SerializedName("number_of_pages")
     private int pages;
 
@@ -64,5 +66,13 @@ public class Book {
 
     public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }

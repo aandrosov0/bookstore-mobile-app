@@ -13,9 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class CardOverviewBookAdapter extends RecyclerView.Adapter<CardOverviewBookAdapter.ViewHolder> {
@@ -33,6 +36,8 @@ public class CardOverviewBookAdapter extends RecyclerView.Adapter<CardOverviewBo
             author = itemView.findViewById(R.id.author);
         }
 
+        public void setCoverFromFilePathAndSave(String filePath) {
+        }
     }
     private final List<Book> books;
 
@@ -51,48 +56,50 @@ public class CardOverviewBookAdapter extends RecyclerView.Adapter<CardOverviewBo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Book book = books.get(position);
-        holder.title.setText(book.getTitle());
-
-        Author[] authors = book.getAuthors();
-
-        if(authors != null) {
-            holder.author.setText(book.getAuthors()[0].getName());
-        } else {
-            holder.author.setText("No Author");
-        }
-
-        Cover cover = book.getCover();
-        if(cover != null) {
-            fileRepository.downloadFile(cover.getMedium(), r -> setBookCover(holder.cover, r));
-        }
+    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
+        holder.cover.setImageDrawable(null);
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Book book = books.get(position);
 
+        String isbn = book.getIsbn();
+        Cover cover = book.getCover();
+        String title = book.getTitle();
+        Author[] authors = book.getAuthors();
+
+        String cacheDirectoryPath = holder.itemView.getContext().getCacheDir().toString() + "/";
+        Path downloadFilePath = Paths.get(cacheDirectoryPath + isbn);
+        boolean isDownloadFileExists = Files.exists(downloadFilePath, LinkOption.NOFOLLOW_LINKS);
+
+        System.out.println(book.getTitle() + " " + book.getUrl());
+        if(cover != null && !isDownloadFileExists) {
+            fileRepository.downloadFile(cover.getMedium(), downloadFilePath.toString(), result -> {
+                Drawable drawable = Drawable.createFromPath((String) result.getData());
+                holder.cover.setImageDrawable(drawable);
+            });
+        } else if(isDownloadFileExists) {
+            Drawable drawable = Drawable.createFromPath(downloadFilePath.toString());
+            holder.cover.setImageDrawable(drawable);
+        }
+
+        if(authors == null) {
+            holder.author.setText("No Author");
+        } else {
+            holder.author.setText(authors[0].getName());
+        }
+
+        int titleLength = holder.itemView.getResources().getInteger(R.integer.card_book_title_length);
+        if(title.length() > titleLength) {
+            title = title.substring(0, titleLength) + "...";
+        }
+
+        holder.title.setText(title);
+    }
 
     @Override
     public int getItemCount() {
         return books.size();
-    }
-
-    private void setBookCover(ImageView cover, Result result) {
-        if(result instanceof Result.Success) {
-            File file = (File) result.getData();
-            Drawable drawable = Drawable.createFromPath(file.getPath());
-            if(cover != null) {
-                cover.post(() -> {
-                    cover.setImageDrawable(drawable);
-                    cover.setForeground(null);
-                });
-            }
-        } else {
-            Object data = result.getData();
-            if(data instanceof FileNotFoundException) {
-                return;
-            }
-
-            cover.post(() -> Utils.showSimpleDialog(cover.getContext(), "Error", data.toString()));
-        }
     }
 }

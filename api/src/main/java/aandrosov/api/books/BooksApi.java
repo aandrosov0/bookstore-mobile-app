@@ -58,7 +58,9 @@ public class BooksApi {
     public Book fetchBook(String isbn) throws IOException, BooksException {
         Response<JsonObject> jsonResponse = service.fetchBook("ISBN:" + isbn).execute();
 
-        if(!jsonResponse.isSuccessful()) {
+        if(!jsonResponse.isSuccessful() && jsonResponse.code() == 404) {
+            return null;
+        } else if(!jsonResponse.isSuccessful()) {
             throw new BooksException(jsonResponse.toString());
         }
 
@@ -68,6 +70,8 @@ public class BooksApi {
             throw new BooksException("Json response is empty!\n" + jsonResponse);
         }
 
-        return new Gson().fromJson(jsonResponseObject.get("ISBN:" + isbn), Book.class);
+        Book book = new Gson().fromJson(jsonResponseObject.get("ISBN:" + isbn), Book.class);
+        book.setIsbn(isbn);
+        return book;
     }
 }

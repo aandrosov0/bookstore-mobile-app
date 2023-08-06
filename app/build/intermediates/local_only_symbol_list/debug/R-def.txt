@@ -16,6 +16,7 @@ id page_favorites
 id page_profile
 id search_view
 id title
+integer card_book_title_length
 layout activity_main
 layout card_book_overview
 layout fragment_page_category

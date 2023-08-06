@@ -32,6 +32,8 @@ public class CategoryPageFragment extends Fragment {
 
     private final CardOverviewBookAdapter cardBookOverviewAdapter;
 
+    private RecyclerView cardBookOverviewRecycler;
+
     private MainActivity activity;
 
     public CategoryPageFragment(BooksRepository booksRepository, FileRepository fileRepository) {
@@ -45,8 +47,8 @@ public class CategoryPageFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_page_category, container, false);
         activity = (MainActivity) getActivity();
 
-        RecyclerView cardBooksOverviewRecycler = layout.findViewById(R.id.card_book_overview_recycler);
-        cardBooksOverviewRecycler.setAdapter(cardBookOverviewAdapter);
+        cardBookOverviewRecycler = layout.findViewById(R.id.card_book_overview_recycler);
+        cardBookOverviewRecycler.setAdapter(cardBookOverviewAdapter);
 
         SearchView searchView = layout.findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -67,7 +69,7 @@ public class CategoryPageFragment extends Fragment {
             }
         );
 
-        cardBooksOverviewRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        cardBookOverviewRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 boolean canScrollDown = recyclerView.canScrollVertically(RecyclerView.FOCUS_DOWN);
@@ -115,8 +117,8 @@ public class CategoryPageFragment extends Fragment {
     private void onCompleteBookFetch(Result result) {
         if(result instanceof Result.Success) {
             Book fetchedBook = (Book) result.getData();
-            books.add(fetchedBook);
             cardBookOverviewAdapter.notifyItemInserted(books.size());
+            books.add(fetchedBook);
         } else {
             Utils.showSimpleDialog(getContext(), "Error", result.getData().toString());
             ((Exception) result.getData()).printStackTrace(System.err);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer name="card_book_title_length">18</integer>
     <string name="app_name">Book Store</string>
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
 

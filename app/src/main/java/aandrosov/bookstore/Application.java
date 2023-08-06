@@ -19,6 +19,6 @@ public class Application extends android.app.Application {
     protected final Handler mainThreadHandler = HandlerCompat.createAsync(Looper.getMainLooper());
     protected final BooksRepository booksRepository = new BooksRepository(api, executorService, mainThreadHandler);
 
-    protected final FileRepository fileRepository = new FileRepository(executorService);
+    protected final FileRepository fileRepository = new FileRepository(executorService, mainThreadHandler);
 
 }
